@@ -17,7 +17,7 @@ def traitement(request):
 
 def index(request):
     app = list(models.Utilisateurs.objects.all())
-    return render(request, 'adminsite/utilisateurs/index.html',{"liste": app})
+    return render(request, 'adminsite/utilisateurs/affiche.html',{"liste": app})
 
 def delete(request, id):
     stream = models.Utilisateurs.objects.get(pk=id)

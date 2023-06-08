@@ -7,11 +7,19 @@
 </head>
 <body>
     {% block content %}
-<ol>
-    {% for l in liste %}
-       <li> {{l}} <a href="/adminsite/types/affiche/{{l.id}}/">affiche</a> <a href="/adminsite/types/update/{{l.id}}/">update</a> <a href="/adminsite/types/delete/{{l.id}}/">delete</a></li>
-    {% endfor %}
-</ol>
-{% endblock %}
+    <div class="form">
+    <h1> Liste des Types</h1>
+    <ol>
+        {% for l in liste %}
+        <p>Types :{{l}}</p>
+    <a href="/adminsite/types/update/{{l.id}}/">
+    <input type="submit" value="Update"\>{% csrf_token %}</a>
+    
+    <a href="/adminsite/typess/delete/{{ l.id }}/" >
+    <input type="submit" value="Delete">{% csrf_token %}</a>
+    
+        {% endfor %}
+    </ol></div>
+    {% endblock %}
 </body>
 </html>

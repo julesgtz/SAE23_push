@@ -7,13 +7,19 @@
 </head>
 <body>
     {% block content %}
-<p> vous avez ajouté le magasin suivant  son index est  </p>
-<a href="ajout_produit/{{id}}/">ajouter un produit</a>
+<div class="form">
+<h1> Liste des Services</h1>
 <ol>
     {% for l in liste %}
-<li> {{l}}</li>
+    <p>Services :{{l}}</p>
+<a href="/adminsite/services/update/{{l.id}}/">
+<input type="submit" value="Update"\>{% csrf_token %}</a>
+
+<a href="/adminsite/services/delete/{{ l.id }}/" >
+<input type="submit" value="Delete">{% csrf_token %}</a>
+
     {% endfor %}
-</ol>
+</ol></div>
 {% endblock %}
 </body>
 </html>
