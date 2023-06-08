@@ -6,56 +6,46 @@
 </head>
 <body>
     <nav>
-        <ul>
-            <li class="menu"><a href="/adminsite/applications/index/">Applications</a>
-                <ul class="sousmenu">
-                <li><a href="/adminsite/applications/ajout/"> Ajouter une application</a></li>
-                <li><a href="/adminsite/applications/affiche/">Afficher les applications</a></li>
-                </ul>
-            </li>
+            <div class="menu"><a href="/adminsite/">Index</a>
+            </div>
 
-            <li class="menu"><a href="/adminsite/fiches/index/">Fiches</a>
-                <ul class="sousmenu">
-                    <li><a href="/adminsite/fiches/ajout/">Ajouter une fiches</a></li>
-                    <li><a href="/adminsite/fiches/affiche/">Afficher les fiches</a></li>
-                </ul>
-            </li>
+            <div class="menu"><a href="/adminsite/applications/">Applications</a>
+                <div class="sousmenu">
+                <div class="ajout"><a href="/adminsite/applications/ajout/"> Ajouter une application</a></div>
+                </div>
+            </div>
 
-            <li class="menu"><a href="/adminsite/serveurs/index/">Serveurs</a>
-                <ul class="sousmenu">
-                    <li><a href="/adminsite/serveurs/ajout/">Ajouter un serveurs</a></li>
-                    <li><a href="/adminsite/serveurs/affiche/">Afficher les serveurs</a></li>
-                </ul>
-            </li>
+            <div class="menu"><a href="/adminsite/fiches/">Fiches</a>
+                <div class="sousmenu">
+                    <div class="ajout"><a href="/adminsite/fiches/ajout/">Ajouter une fiche</a></div>
+                </div>
+            </div>
 
-            <li class="menu"><a href="/adminsite/services/index/">Services</a>
-                <ul class="sousmenu">
-                    <li><a href="/adminsite/services/ajout/">Ajouter un services</a></li>
-                    <li><a href="/adminsite/services/affiche/">Afficher les services</a></li>
-                </ul>
-            </li>
+            <div class="menu"><a href="/adminsite/serveurs/">Serveurs</a>
+                <div class="sousmenu">
+                    <div class="ajout"><a href="/adminsite/serveurs/ajout/">Ajouter un serveur</a></div>
+                </div>
+            </div>
 
-            <li class="menu"><a href="/adminsite/types/index/">Type</a>
-                <ul class="sousmenu">
-                    <li><a href="/adminsite/types/ajout/">Ajouter un types</a></li>
-                    <li><a href="/adminsite/types/affiche/">Afficher les types</a></li>
-                </ul>
-            </li>
+            <div class="menu"><a href="/adminsite/services/">Services</a>
+                <div class="sousmenu">
+                    <div class="ajout"><a href="/adminsite/services/ajout/">Ajouter un service</a></div>
+                </div>
+            </div>
 
-            <li class="menu"><a href="/adminsite/utilisateurs/index/">Utilisateur</a>
-                <ul class="sousmenu">
-                    <li><a href="/adminsite/utilisateur/ajout/">Ajouter un utilisateur</a></li>
-                    <li><a href="/adminsite/utilisateur/affiche/">Afficher les utilisateur</a></li>
-                </ul>
-            </li>
+            <div class="menu"><a href="/adminsite/types/">Type</a>
+                <div class="sousmenu">
+                    <div class="ajout"><a href="/adminsite/types/ajout/">Ajouter un type</a></div>
+                </div>
+            </div>
 
-            <li class="menu"><a href="/adminsite/fiches/index/">Fiches</a>
-                <ul class="sousmenu">
-                    <a href="/adminsite/fiches/ajout/">Ajouter une fiches</a>
-                    <a href="/adminsite/fiches/affiche/">Afficher les fiches</a>
-                </ul>
-            </li>
-        </ul>
+            <div class="menu"><a href="/adminsite/utilisateurs/">Utilisateur</a>
+                <div class="sousmenu">
+                    <div class="ajout"><a href="/adminsite/utilisateurs/ajout/">Ajouter un utilisateur</a></div>
+                </div>
+            </div>
+
+            
     </nav>
     <main>
         {% block content %}{% endblock %}

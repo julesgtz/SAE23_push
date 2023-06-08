@@ -4,10 +4,11 @@ from django.http import HttpResponseRedirect
 from . import models
 
 def ajout(request):
-    form = ApplicationsForms
+    form = ApplicationsForms()
     return render(request, "adminsite/applications/ajout.html", {"form": form})
+
 def traitement(request):
-    form = ApplicationsForms(request.POST)
+    form = ApplicationsForms(request.POST, request.FILES)
     if form.is_valid():
         app = form.save()
         return HttpResponseRedirect("/adminsite/applications/")
@@ -39,5 +40,5 @@ def update(request, id):
     return render(request,"adminsite/applications/ajout.html",{"form":form, "id": id})
 
 def affiche(request, id):
-    var = models.Fiches.objects.get(pk=id)
+    var = models.Applications.objects.get(pk=id)
     return render(request,"adminsite/applications/affiche.html",{"util": var, "id": id})

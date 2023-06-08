@@ -44,15 +44,15 @@ class Utilisateurs(models.Model):
 
 class Applications(models.Model):
     nom = models.CharField(max_length=100)
-    logo = models.ImageField(upload_to='application_logos/', blank=True, null=True)
+    logo = models.ImageField(upload_to='images/', blank=True, null=True)
     utilisateurs = models.ForeignKey(Utilisateurs, on_delete=models.CASCADE, null=True, related_name="utilisateurs")
     serveur = models.ForeignKey(Serveurs, on_delete=models.CASCADE, null=True, related_name="serveur")
 
     def __str__(self):
-        return f"{self.nom},avec le logo {self.logo} sur le serveur{self.serveur} de l'utilisateur {self.utilisateurs}"
+        return f"{self.nom}, sur le serveur{self.serveur} de l'utilisateur {self.utilisateurs}"
 
     def dico(self):
-        return {"nom": self.nom, "logo": self.logo,"serveur": self.serveur,"utilisateurs": self.utilisateurs}
+        return {"nom": self.nom, "logo": self.logo.file,"serveur": self.serveur,"utilisateurs": self.utilisateurs}
 
 
 class Services(models.Model):

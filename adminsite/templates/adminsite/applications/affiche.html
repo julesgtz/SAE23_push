@@ -10,9 +10,9 @@
 
 <h1> Liste des Applications</h1>
 <ol>
-{%for l in app%}
+{%for l in liste%}
 <li> {{l}}
-
+    <img src="/media/{{l.logo}}"/>
 <a href="/adminsite/applications/update/{{l.id}}/">
 <input type="submit" value="Update"\>{% csrf_token %}</a>
 

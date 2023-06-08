@@ -13,7 +13,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='applications',
             name='logo',
-            field=models.ImageField(blank=True, null=True, upload_to='application_logos/'),
+            field=models.ImageField(blank=True, null=True, upload_to='images/'),
         ),
         migrations.AddField(
             model_name='applications',
