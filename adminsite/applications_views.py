@@ -25,7 +25,7 @@ def delete(request, id):
     return HttpResponseRedirect("/adminsite/applications/")
 
 def update_traitement(request, id):
-    mform = ApplicationsForms(request.POST)
+    mform = ApplicationsForms(request.POST, request.FILES)
     if mform.is_valid():
         mag = mform.save(commit=False)
         mag.id = id
@@ -37,7 +37,7 @@ def update_traitement(request, id):
 def update(request, id):
     a = models.Applications.objects.get(pk=id)
     form = ApplicationsForms(a.dico())
-    return render(request,"adminsite/applications/ajout.html",{"form":form, "id": id})
+    return render(request,"adminsite/applications/update.html",{"form":form, "id": id})
 
 def affiche(request, id):
     var = models.Applications.objects.get(pk=id)

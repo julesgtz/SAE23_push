@@ -2,11 +2,13 @@
 <html lang="fr">
 <head>
     {% load static %}
+    <style type="text/css">a:link{text-decoration:none}</style>
     <link rel="stylesheet" href="{% static 'adminsite/index.css' %}">
 </head>
 <body>
     <nav>
-            <div class="menu"><a href="/adminsite/">Index</a>
+            <div class="menu" id="index">
+                <div id="resize"><a href="/adminsite/" id="link_index">Index</a></div>
             </div>
 
             <div class="menu"><a href="/adminsite/applications/">Applications</a>
