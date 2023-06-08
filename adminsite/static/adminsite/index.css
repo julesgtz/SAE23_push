@@ -4,6 +4,14 @@
 
 }
 
+h1{
+    text-align: center;
+    color: blue;
+    font-weight: bold;
+    margin-top: 10%;
+    font-size: 450%;
+}
+
 nav {
     flex-wrap: wrap;    
     display: flex;
