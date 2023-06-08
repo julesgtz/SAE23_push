@@ -4,4 +4,4 @@ Ce repertoire contient tous les fichiers nécessaires pour mettre en place le pr
 
 ## Installation
 
-`pip install -r requirements.txt`
+`pip install -r requirements`
