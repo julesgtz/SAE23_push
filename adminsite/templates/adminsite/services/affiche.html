@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>ajout d'un magasin</title>
+</head>
+<body>
+<p> vous avez ajouté le magasin suivant  son index est  </p>
+<a href="ajout_produit/{{id}}/">ajouter un produit</a>
+<ol>
+    {% for l in liste %}
+<li> {{l}}</li>
+    {% endfor %}
+</ol>
+</body>
+</html>
