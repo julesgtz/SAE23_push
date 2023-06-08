@@ -23,7 +23,7 @@ class Serveurs(models.Model):
     stockage = models.CharField(max_length=20, choices=stockage_choices, null=True)
 
     def __str__(self):
-        return f"Le serveur {self.nom} de type {self.type} avec un processeur {self.processeur} et une memoire de {self.memoire} avec un stockage de {self.stockage}"
+        return f"serveur {self.nom} {self.type} avec un processeur {self.processeur} et une memoire de {self.memoire} avec un stockage de {self.stockage}"
 
     def dico(self):
         return {"nom": self.nom, "type": self.type,"processeur": self.processeur,"memoire": self.memoire,"stockage": self.stockage}
@@ -35,7 +35,7 @@ class Utilisateurs(models.Model):
     email = models.EmailField(max_length=50)
 
     def __str__(self):
-        return f"L'utilisateur est {self.nom} {self.prenom}, {self.email}"
+        return f"{self.nom} {self.prenom}, {self.email}"
 
     def dico(self):
         return {"nom": self.nom, "prenom": self.prenom,"email": self.email}
@@ -49,7 +49,7 @@ class Applications(models.Model):
     serveur = models.ForeignKey(Serveurs, on_delete=models.CASCADE, null=True, related_name="serveur")
 
     def __str__(self):
-        return f"{self.nom}, sur le serveur{self.serveur} de l'utilisateur {self.utilisateurs}"
+        return f"{self.nom}, sur le {self.serveur} de l'utilisateur {self.utilisateurs}"
 
     def dico(self):
         return {"nom": self.nom, "logo": self.logo.file,"serveur": self.serveur,"utilisateurs": self.utilisateurs}

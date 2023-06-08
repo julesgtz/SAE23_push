@@ -11,23 +11,22 @@
 <h1> Liste des Applications</h1>
 <ol>
 {%for l in liste%}
-<li> {{l}}
+<p>Application {{l}}</p>
     <div class="img">
     <img src="/media/{{l.logo}}" height="300px" width="300px"/>
         </div>
 <a href="/adminsite/applications/update/{{l.id}}/">
 <input type="submit" value="Update"\>{% csrf_token %}</a>
 
-<a href="/adminsite/applications/delete/{{ l.id }}/">
+<a href="/adminsite/applications/delete/{{ l.id }}/" >
 <input type="submit" value="Delete">{% csrf_token %}</a>
-</li>
+
 
     {%endfor %}
 </ol>
 
-<a href="/adminsite/applications/index/">
     </div>
-{% csrf_token %}<input type="submit" value="retour en arrière"></a>
+{% csrf_token %}
 {% endblock %}
 </body>
 </html>

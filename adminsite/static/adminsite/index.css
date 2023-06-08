@@ -54,11 +54,29 @@ div > a:hover{
 }
 
 .form{
-    
+    width: 50%;
+    margin: auto;
+    text-align: center;
 }
 
 .img{
     height: 300px;
     width: 300px;
+    margin: auto;
 
+}
+
+.form > *{
+    padding: 10px;
+}
+
+.form > ol > *{
+    padding: 10px;
+    margin: auto;
+
+}
+
+.form>ol>p{
+
+    width: 75%;
 }
