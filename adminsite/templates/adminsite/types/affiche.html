@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="fr">
+    {% extends "adminsite/main.html" %}
 <head>
 <meta charset="UTF-8">
 <title></title>
 </head>
 <body>
+    {% block content %}
 <ol>
     {% for l in liste %}
        <li> {{l}} <a href="/adminsite/types/affiche/{{l.id}}/">affiche</a> <a href="/adminsite/types/update/{{l.id}}/">update</a> <a href="/adminsite/types/delete/{{l.id}}/">delete</a></li>
     {% endfor %}
 </ol>
+{% endblock %}
 </body>
 </html>
