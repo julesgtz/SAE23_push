@@ -61,6 +61,13 @@ h1{
     font-size: 450%;
     text-decoration: underline;
 }
+h2{
+    color:#1e3c72;
+    font-weight: bold;
+    margin-top: 2%;
+    font-size: 250%;
+
+}
 
 nav {
     flex-wrap: wrap;    
