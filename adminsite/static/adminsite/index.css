@@ -4,6 +4,11 @@
 
 }
 
+body{
+    text-align: center;
+    
+}
+
 h1{
     text-align: center;
     color: blue;
@@ -66,7 +71,10 @@ div > a:hover{
     width: 50%;
     margin: auto;
     text-align: center;
+
 }
+
+
 
 .img{
     height: 300px;
