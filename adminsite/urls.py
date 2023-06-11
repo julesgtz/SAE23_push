@@ -1,5 +1,5 @@
 from django.urls import path
-from . import views, serveurs_views, types_views, utilisateurs_views, services_views, applications_views, fiches_views
+from . import views, serveurs_views, types_views, utilisateurs_views, services_views, applications_views
 
 
 urlpatterns = [
@@ -45,12 +45,5 @@ urlpatterns = [
     path('applications/delete/<int:id>/', applications_views.delete),
     path('applications/update_traitement/<int:id>/', applications_views.update_traitement),
 
-    path('fiches/', fiches_views.index),
-    path('fiches/update/<int:id>/', fiches_views.update),
-    path('fiches/affiche/<int:id>/', fiches_views.affiche),
-    path('fiches/traitement/', fiches_views.traitement),
-    path('fiches/ajout/', fiches_views.ajout),
-    path('fiches/delete/<int:id>/', fiches_views.delete),
-    path('fiches/update_traitement/<int:id>/', fiches_views.update_traitement),
-    #path('fiche/serveur_pdf/<int:id>/', fiches_views.serveur_pdf),
+    path('pdf/<int:id>/', serveurs_views.serveur_pdf),
 ]
