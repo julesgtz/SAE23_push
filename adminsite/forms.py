@@ -52,11 +52,3 @@ class ApplicationsForms(ModelForm):
             'serveur': _('Serveur'),
             'utilisateurs': _('Utlisateur'),
         }
-class FichesForms(ModelForm):
-    class Meta:
-        model = models.Fiches
-        fields = ('services','applications')
-        labels = {
-            'services': _('Services'),
-            'applications': _('Applications'),
-        }
