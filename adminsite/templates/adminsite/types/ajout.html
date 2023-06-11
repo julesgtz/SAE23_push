@@ -10,9 +10,10 @@
 
 <form method="post" action="/adminsite/types/traitement/" enctype="multipart/form-data">
 {% csrf_token %}
-{{ form.as_ul }}
-<input type="submit" value="envoyer␣les␣données"\>
+{{ form }}
+
 </form>
+<input type="submit" value="Envoyer les données" class="button">
 {% endblock %}
 </body>
 </html>

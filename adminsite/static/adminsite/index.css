@@ -6,6 +6,7 @@
 
 body{
     text-align: center;
+    background-color:oldlace;
     
 }
 
@@ -23,30 +24,33 @@ body{
     cursor: pointer;
     transition: background-color 0.3s ease;
     margin-top: 1%;
+    margin-bottom: 4%;
 }
 .button:hover {
     background-color: #12243e;
 }
 
 form {
-    max-width: 800px;
+    max-width: 50%;
     margin: 0 auto;
     padding: 20px;
+    margin-top: 4%;
+    margin-bottom: 1%;
+    padding-bottom: 2%;
     background-color: #fff;
-    border: 1px solid #1e3c72;
+    border: 3px solid #1e3c72;
     border-radius: 5px;
+    font-size: large;
 
 }
 
-
-form li {
-    margin-bottom: 10px;
-}
 
 form label {
     display: block;
-    font-weight: bold;
+    font-weight: bolder;
     color: #1e3c72;
+    padding-top: 2%;
+    padding-bottom: 1%;
 }
 
 h1{
@@ -64,11 +68,13 @@ nav {
     font-size: 20px;
     font-weight: bold;
     padding-bottom: 25px;
+    
 }
 
 .menu{
     width: 16.6%;
     height: 70px;
+    
 }
 
 .ajout{
@@ -85,12 +91,16 @@ div > a{
     align-items: center;
     justify-content: center;
     height: 35px;
+    font-size: x-large;
+    text-shadow: 1px 1px 1px black;
     color: rgb(143, 200, 250);
+    
 
 }
 
 div > a:hover{
-    background-color: rgb(57, 160, 250);
+    background-color: rgb(57, 160, 250); 
+    
 }
 
 #index{

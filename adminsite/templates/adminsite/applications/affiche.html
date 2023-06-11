@@ -6,27 +6,32 @@
     <title>Title</title>
 </head>
 <body> 
-    {% block content %}    
+
+    {% block content %}  
+<form>     
 <div class="form">
 <h2> Liste des Applications</h2>
 <ol>
+
 {%for l in liste%}
-<p>Application :{{l}}</p>
+
+    <p>Application :{{l}}</p>
     <div class="img">
     <img src="/media/{{l.logo}}" height="300px" width="300px"/>
         </div>
 <a href="/adminsite/applications/update/{{l.id}}/">
-<input type="submit" value="Update"\>{% csrf_token %}</a>
+<input type="submit" value="Update" class="button">{% csrf_token %}</a>
 
 <a href="/adminsite/applications/delete/{{ l.id }}/" >
-<input type="submit" value="Delete">{% csrf_token %}</a>
+<input type="submit" value="Delete" class="button">{% csrf_token %}</a>
 
 
     {%endfor %}
 </ol>
 
     </div>
-{% csrf_token %}
+{% csrf_token %}</form>
 {% endblock %}
+
 </body>
 </html>

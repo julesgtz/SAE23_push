@@ -7,19 +7,20 @@
 </head>
 <body>
     {% block content %}
+    <form>
     <div class="form">
     <h2> Liste des Utilisateurs</h2>
     <ol>
         {% for l in liste %}
         <p>Utilisateur :{{l}}</p>
     <a href="/adminsite/utilisateurs/update/{{l.id}}/">
-    <input type="submit" value="Update"\>{% csrf_token %}</a>
+    <input type="submit" value="Update" class="button">{% csrf_token %}</a>
     
     <a href="/adminsite/utilisateurs/delete/{{ l.id }}/" >
-    <input type="submit" value="Delete">{% csrf_token %}</a>
+    <input type="submit" value="Delete" class="button">{% csrf_token %}</a>
     
         {% endfor %}
-    </ol></div>
+    </ol></div></form>
     {% endblock %}
 </body>
 </html>
