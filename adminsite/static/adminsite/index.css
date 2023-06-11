@@ -43,7 +43,19 @@ form {
     font-size: large;
 
 }
+.form {
+    max-width: 50%;
+    margin: 0 auto;
+    padding: 20px;
+    margin-top: 4%;
+    margin-bottom: 1%;
+    padding-bottom: 2%;
+    background-color: #fff;
+    border: 3px solid #1e3c72;
+    border-radius: 5px;
+    font-size: large;
 
+}
 
 form label {
     display: block;
