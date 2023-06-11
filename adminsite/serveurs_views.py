@@ -36,7 +36,7 @@ def update_traitement(request, id):
 def update(request, id):
     serv = models.Serveurs.objects.get(pk=id)
     form = ServeursForms(serv.dico())
-    return render(request,"adminsite/serveurs/ajout.html",{"form":form, "id": id})
+    return render(request,"adminsite/serveurs/update.html",{"form":form, "id": id})
 
 def affiche(request, id):
     var = models.Serveurs.objects.get(pk=id)

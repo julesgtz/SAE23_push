@@ -1,12 +1,12 @@
 from django.shortcuts import render, redirect
 from .forms import TypesForms
 from django.http import HttpResponseRedirect
-
 from . import models
 
 def ajout(request):
     form = TypesForms
     return render(request, "adminsite/types/ajout.html", {"form": form})
+
 def traitement(request):
     form = TypesForms(request.POST)
     if form.is_valid():
@@ -25,7 +25,7 @@ def delete(request, id):
     return HttpResponseRedirect("/adminsite/types/")
 
 def update_traitement(request, id):
-    mform = TypesForms(request.POST)
+    mform = TypesForms(request.POST, request.FILES)
     if mform.is_valid():
         mag = mform.save(commit=False)
         mag.id = id
@@ -37,7 +37,7 @@ def update_traitement(request, id):
 def update(request, id):
     typ = models.Types.objects.get(pk=id)
     form = TypesForms(typ.dico())
-    return render(request,"adminsite/types/ajout.html",{"form":form, "id": id})
+    return render(request,"adminsite/types/update.html",{"form":form, "id": id})
 
 def affiche(request, id):
     var = models.Types.objects.get(pk=id)

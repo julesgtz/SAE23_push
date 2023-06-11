@@ -38,7 +38,7 @@ def update_traitement(request, id):
 def update(request, id):
     util = models.Utilisateurs.objects.get(pk=id)
     form = UtilisateursForms(util.dico())
-    return render(request,"adminsite/utilisateurs/ajout.html",{"form":form, "id": id})
+    return render(request,"adminsite/utilisateurs/update.html",{"form":form, "id": id})
 
 def affiche(request, id):
     var = models.Utilisateurs.objects.get(pk=id)

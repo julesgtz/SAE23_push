@@ -37,7 +37,7 @@ def update_traitement(request, id):
 def update(request, id):
     serv = models.Services.objects.get(pk=id)
     form = ServicesForms(serv.dico())
-    return render(request,"adminsite/services/ajout.html",{"form":form, "id": id})
+    return render(request,"adminsite/services/update.html",{"form":form, "id": id})
 
 def affiche(request, id):
     var = models.Services.objects.get(pk=id)

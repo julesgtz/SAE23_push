@@ -39,7 +39,7 @@ def update_traitement(request, id):
 def update(request, id):
     f = models.Fiches.objects.get(pk=id)
     form = FichesForms(f.dico())
-    return render(request,"adminsite/fiches/ajout.html",{"form":form, "id": id})
+    return render(request,"adminsite/fiches/update.html",{"form":form, "id": id})
 
 def affiche(request, id):
     var = models.Fiches.objects.get(pk=id)
