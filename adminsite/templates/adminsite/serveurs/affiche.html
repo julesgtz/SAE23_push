@@ -20,6 +20,9 @@
 <a href="/adminsite/serveurs/delete/{{ l.id }}/" >
 <input type="submit" value="Delete" class="button">{% csrf_token %}</a>
 
+<a href="/adminsite/serveurs//pdf/{{l.id}}/" >
+    <input type="submit" value="PDF" class="button">{% csrf_token %}</a>
+
     {% endfor %}
 </ol></div>
 {% endblock %}
