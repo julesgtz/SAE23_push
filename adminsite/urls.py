@@ -52,4 +52,5 @@ urlpatterns = [
     path('fiches/ajout/', fiches_views.ajout),
     path('fiches/delete/<int:id>/', fiches_views.delete),
     path('fiches/update_traitement/<int:id>/', fiches_views.update_traitement),
+    #path('fiche/serveur_pdf/<int:id>/', fiches_views.serveur_pdf),
 ]
