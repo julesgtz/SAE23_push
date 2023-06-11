@@ -7,7 +7,7 @@
 body{
     text-align: center;
     background-color:oldlace;
-    
+
 }
 
 .button {
@@ -52,18 +52,6 @@ form label {
     padding-top: 2%;
     padding-bottom: 1%;
 }
-.form{
-    max-width: 50%;
-    margin: 0 auto;
-    padding: 20px;
-    margin-top: 4%;
-    margin-bottom: 1%;
-    padding-bottom: 2%;
-    background-color: #fff;
-    border: 3px solid #1e3c72;
-    border-radius: 5px;
-    font-size: large;
-}
 
 h1{
     text-align: center;
@@ -78,23 +66,22 @@ h2{
     font-weight: bold;
     margin-top: 2%;
     font-size: 250%;
-    padding-bottom: 1%;
 
 }
 
 nav {
-    flex-wrap: wrap;    
+    flex-wrap: wrap;
     display: flex;
     font-size: 20px;
     font-weight: bold;
     padding-bottom: 25px;
-    
+
 }
 
 .menu{
     width: 20%;
     height: 70px;
-    
+
 }
 
 .ajout{
@@ -114,13 +101,13 @@ div > a{
     font-size: x-large;
     text-shadow: 1px 1px 1px black;
     color: rgb(143, 200, 250);
-    
+
 
 }
 
 div > a:hover{
-    background-color: rgb(57, 160, 250); 
-    
+    background-color: rgb(57, 160, 250);
+
 }
 
 #index{
