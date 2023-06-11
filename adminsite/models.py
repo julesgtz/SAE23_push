@@ -68,13 +68,3 @@ class Services(models.Model):
     def dico(self):
         return {"nom": self.nom, "date": self.date,"memoire_use": self.memoire_use,"memoire_vive": self.memoire_vive,"serveur_lancement": self.serveur_lancement}
 
-
-class Fiches(models.Model):
-    services = models.ForeignKey(Services, on_delete=models.CASCADE, null=True, related_name="services")
-    applications = models.ForeignKey(Applications, on_delete=models.CASCADE, null=True, related_name="applications")
-
-    def __str__(self):
-        return f"on verra ce qu'il faut mettre ici"
-
-    def dico(self):
-        return {"services": self.services, "applications": self.applications}
