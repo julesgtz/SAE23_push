@@ -9,7 +9,7 @@ class Types(models.Model):
         return f"{self.type}"
 
     def dico(self):
-        return {"types": self.type, "description": self.description}
+        return {"type": self.type, "description": self.description}
 
 
 class Serveurs(models.Model):
@@ -44,7 +44,7 @@ class Utilisateurs(models.Model):
 
 class Applications(models.Model):
     nom = models.CharField(max_length=100)
-    logo = models.ImageField(upload_to='images/', blank=True, null=True)
+    logo = models.ImageField(upload_to='images/')
     utilisateurs = models.ForeignKey(Utilisateurs, on_delete=models.CASCADE, null=True, related_name="utilisateurs")
     serveur = models.ForeignKey(Serveurs, on_delete=models.CASCADE, null=True, related_name="serveur")
 
