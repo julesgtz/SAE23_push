@@ -33,12 +33,12 @@ class UtilisateursForms(ModelForm):
 class ServicesForms(ModelForm):
     class Meta:
         model = models.Services
-        fields = ('nom','date','memoire_use','memoire_vive','serveur_lancement')
+        fields = ('nom','date','stockage_use','memoire_vive','serveur_lancement')
         labels = {
             'nom': _('Nom du service'),
             'date':_('Date de lancement'),
-            'memoire_use': _('Espace mémoire utilisé'),
-            'memoire_vive': _('Espace mémoire nécessaire'),
+            'stockage_use': _('Espace de stockage utilisé en Mbit'),
+            'memoire_vive': _('Espace mémoire utilisé en Mbit'),
             'serveur_lancement': _('Serveur de lancement'),
 
         }
