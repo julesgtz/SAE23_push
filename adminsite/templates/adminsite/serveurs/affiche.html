@@ -13,7 +13,11 @@
 
 <ol>
     {% for l in liste %}
-    <p>Serveur :{{l}}</p>
+    <p>Serveur : {{l.nom}}</p>
+    <p>Type : {{l.type}}</p>
+    <p>Processseur : {{l.processeur}}</p>
+    <p>Memoire : {{l.memoire}}</p>
+    <p>Stockage : {{l.stockage}}</p>
 <a href="/adminsite/serveurs/update/{{l.id}}/">
 <input type="submit" value="Update" class="button">{% csrf_token %}</a>
 
