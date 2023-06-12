@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% extends "adminsite/main.html" %}
+<head>
+    {% load static %}
+    <style type="text/css">a:link{text-decoration:none}</style>
+    <link rel="stylesheet" href="{% static 'adminsite/index.css' %}">
+</head>
+<body>
+{% block content %}
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  <input type="file" name="fichier" accept=".txt">
+  <button type="submit">Importer</button>
+</form>
+{% if succes %}
+  <p>{{succes}}</p>
+{% else %}
+  <p>{{succes}}</p>
+{% endif %}
+{% endblock %}
+</body>
+</html>
