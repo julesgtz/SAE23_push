@@ -58,7 +58,7 @@ class Applications(models.Model):
 class Services(models.Model):
     nom = models.CharField(max_length=30)
     date = models.DateField()
-    memoire_use = models.CharField(max_length=8)
+    stockage_use = models.CharField(max_length=8)
     memoire_vive = models.CharField(max_length=8)
     serveur_lancement = models.ForeignKey(Serveurs, on_delete=models.CASCADE, null=True, related_name="serveur_lancement")
 
@@ -66,5 +66,5 @@ class Services(models.Model):
         return f"{self.nom},le {self.date} utilisant {self.memoire_use} de memoire , nécessitant {self.memoire_vive} de mémoire , sur le serveur {self.serveur_lancement}"
 
     def dico(self):
-        return {"nom": self.nom, "date": self.date,"memoire_use": self.memoire_use,"memoire_vive": self.memoire_vive,"serveur_lancement": self.serveur_lancement}
+        return {"nom": self.nom, "date": self.date,"stockage_use": self.memoire_use,"memoire_vive": self.memoire_vive,"serveur_lancement": self.serveur_lancement}
 
