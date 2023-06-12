@@ -23,7 +23,7 @@ class Serveurs(models.Model):
     stockage = models.CharField(max_length=20, choices=stockage_choices, null=True)
 
     def __str__(self):
-        return f" {self.nom}: serveur  {self.type}"
+        return f" {self.nom} ( {self.type} )"
 
     def dico(self):
         return {"nom": self.nom, "type": self.type,"processeur": self.processeur,"memoire": self.memoire,"stockage": self.stockage}
@@ -57,12 +57,12 @@ class Applications(models.Model):
 class Services(models.Model):
     nom = models.CharField(max_length=30)
     date = models.DateField()
-    stockage_use = models.CharField(max_length=8)
-    memoire_vive = models.CharField(max_length=8)
+    stockage_use = models.CharField(max_length=8,null=True)
+    memoire_vive = models.CharField(max_length=8,null=True)
     serveur_lancement = models.ForeignKey(Serveurs, on_delete=models.CASCADE, null=True, related_name="serveur_lancement")
     def __str__(self):
         return f" {self.nom},le {self.date} utilisant {self.stockage_use} de stockage , nécessitant {self.memoire_vive} de mémoire , sur le serveur : {self.serveur_lancement}"
 
     def dico(self):
-        return {"nom": self.nom, "date": self.date,"memoire_use": self.stockage_use,"stockage_use": self.memoire_vive,"serveur_lancement": self.serveur_lancement}
+        return {"nom": self.nom, "date": self.date,"stockage_use": self.stockage_use,"memoire_vive": self.memoire_vive,"serveur_lancement": self.serveur_lancement}
 
