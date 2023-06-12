@@ -1,6 +1,7 @@
 from django.forms import ModelForm
 from django.utils.translation import gettext_lazy as _
 from . import models
+from django import forms
 
 class ServeursForms(ModelForm):
     class Meta:
@@ -31,6 +32,7 @@ class UtilisateursForms(ModelForm):
             'email': _('Email'),
         }
 class ServicesForms(ModelForm):
+    date = forms.DateField(widget=forms.DateInput(attrs={"type" : "date"}))
     class Meta:
         model = models.Services
         fields = ('nom','date','stockage_use','memoire_vive','serveur_lancement')

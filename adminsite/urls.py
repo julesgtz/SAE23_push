@@ -46,4 +46,6 @@ urlpatterns = [
     path('applications/update_traitement/<int:id>/', applications_views.update_traitement),
 
     path('pdf/<int:id>/', serveurs_views.serveur_pdf),
+
+    path('importe/', views.importe),
 ]

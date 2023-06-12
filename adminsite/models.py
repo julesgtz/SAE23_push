@@ -23,7 +23,7 @@ class Serveurs(models.Model):
     stockage = models.CharField(max_length=20, choices=stockage_choices, null=True)
 
     def __str__(self):
-        return f"{self.nom}"
+        return f" {self.nom} {self.type} avec un processeur {self.processeur} et une memoire de {self.memoire} avec un stockage de {self.stockage}"
 
     def dico(self):
         return {"nom": self.nom, "type": self.type,"processeur": self.processeur,"memoire": self.memoire,"stockage": self.stockage}
@@ -35,7 +35,7 @@ class Utilisateurs(models.Model):
     email = models.EmailField(max_length=50)
 
     def __str__(self):
-        return f"{self.nom} {self.prenom}"
+        return f" {self.nom} {self.prenom}, {self.email}"
 
     def dico(self):
         return {"nom": self.nom, "prenom": self.prenom,"email": self.email}
@@ -44,10 +44,9 @@ class Utilisateurs(models.Model):
 
 class Applications(models.Model):
     nom = models.CharField(max_length=100)
-    logo = models.ImageField(upload_to='images/',null= True,)
+    logo = models.ImageField(upload_to='images/', null=True, blank=True)
     utilisateurs = models.ForeignKey(Utilisateurs, on_delete=models.CASCADE, null=True, related_name="utilisateurs")
     serveur = models.ForeignKey(Serveurs, on_delete=models.CASCADE, null=True, related_name="serveur")
-
     def __str__(self):
         return f"{self.nom}, sur le {self.serveur} de l'utilisateur {self.utilisateurs}"
 
@@ -61,10 +60,9 @@ class Services(models.Model):
     stockage_use = models.CharField(max_length=8)
     memoire_vive = models.CharField(max_length=8)
     serveur_lancement = models.ForeignKey(Serveurs, on_delete=models.CASCADE, null=True, related_name="serveur_lancement")
-
     def __str__(self):
-        return f"{self.nom},le {self.date} utilisant {self.stockage_use} de memoire , nécessitant {self.memoire_vive} de mémoire , sur le serveur {self.serveur_lancement}"
+        return f" {self.nom},le {self.date} utilisant {self.stockage_use} de stockage , nécessitant {self.memoire_vive} de mémoire , sur le serveur : {self.serveur_lancement}"
 
     def dico(self):
-        return {"nom": self.nom, "date": self.date,"stockage_use": self.stockage_use,"memoire_vive": self.memoire_vive,"serveur_lancement": self.serveur_lancement}
+        return {"nom": self.nom, "date": self.date,"memoire_use": self.stockage_use,"stockage_use": self.memoire_vive,"serveur_lancement": self.serveur_lancement}
 
