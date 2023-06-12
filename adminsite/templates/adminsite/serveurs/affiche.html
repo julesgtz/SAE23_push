@@ -17,7 +17,8 @@
     <p>Type : {{l.type}}</p>
     <p>Processseur : {{l.processeur}}</p>
     <p>Memoire : {{l.memoire}}</p>
-    <p>Stockage : {{l.stockage}}</p>
+    <p>Stockage initial: {{l.stockage_initial}}</p>
+    <p>Stockage restant: {{l.stockage}}</p>
 <a href="/adminsite/serveurs/update/{{l.id}}/">
 <input type="submit" value="Update" class="button">{% csrf_token %}</a>
 
