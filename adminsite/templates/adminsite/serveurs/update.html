@@ -7,7 +7,7 @@
 </head>
 <body>
     {% block content %}    
-
+    <h2> Update des Serveurs</h2>
 <form method="post" action="/adminsite/serveurs/update_traitement/{{id}}/" enctype="multipart/form-data">
 {% csrf_token %}
 {{ form }}<br><br><br>
