@@ -8,10 +8,16 @@
 </head>
 <body>
 {% block content %}
+<h2>Importer fichier</h2>
 <form method="post" enctype="multipart/form-data">
-  {% csrf_token %}
-  <input type="file" name="fichier" accept=".txt">
-  <button type="submit">Importer</button>
+  {% csrf_token %}<br>
+  <h3>Format attendu dans le fichier texte :</h3> <br><br>
+  <p>Pour ajouter une application  : application,NomApplication,IDserveur,IDutilisateur<br><br>et
+    <br><br>Pour ajouter un service  : services,Nomservice,date(aaaa-mm-dd),StockageUtilisé,MemoireVive,IDserveur</p>
+  <br><br>
+  <input type="file" name="fichier" accept=".txt" >
+  <br><br><br>
+  <input type="submit" value="Importer" class="button">
 </form>
 {% if succes %}
   <p>{{succes}}</p>

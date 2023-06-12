@@ -23,7 +23,7 @@ class Serveurs(models.Model):
     stockage = models.CharField(max_length=20, choices=stockage_choices, null=True)
 
     def __str__(self):
-        return f" {self.nom} {self.type} avec un processeur {self.processeur} et une memoire de {self.memoire} avec un stockage de {self.stockage}"
+        return f" {self.nom}: serveur  {self.type}"
 
     def dico(self):
         return {"nom": self.nom, "type": self.type,"processeur": self.processeur,"memoire": self.memoire,"stockage": self.stockage}
@@ -35,7 +35,7 @@ class Utilisateurs(models.Model):
     email = models.EmailField(max_length=50)
 
     def __str__(self):
-        return f" {self.nom} {self.prenom}, {self.email}"
+        return f" {self.nom} {self.prenom}"
 
     def dico(self):
         return {"nom": self.nom, "prenom": self.prenom,"email": self.email}

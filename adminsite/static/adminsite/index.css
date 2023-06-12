@@ -81,7 +81,12 @@ h2{
     margin-bottom: 2%;
 
 }
-
+h3{
+    font-family: 'Roboto', sans-serif;
+    font-size: 125%;
+    color: #333333; 
+    text-decoration: underline;
+}
 nav {
     flex-wrap: wrap;
     display: flex;
