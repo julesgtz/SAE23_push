@@ -29,7 +29,7 @@ def update_traitement(request, id):
     if mform.is_valid():
         mag = mform.save(commit=False)
         mag.id = id
-        mag.save()
+        mag.save()   
         return HttpResponseRedirect("/adminsite/applications/")
     else:
         return render(request, "adminsite/applications/update_affiche.html", {"form": mform, "id": id})

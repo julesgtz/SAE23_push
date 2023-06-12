@@ -44,7 +44,7 @@ class Utilisateurs(models.Model):
 
 class Applications(models.Model):
     nom = models.CharField(max_length=100)
-    logo = models.ImageField(upload_to='images/', null=True, blank=True)
+    logo = models.ImageField(upload_to='images/', null=True, blank=True, default="images/applications_default.jpg")
     utilisateurs = models.ForeignKey(Utilisateurs, on_delete=models.CASCADE, null=True, related_name="utilisateurs")
     serveur = models.ForeignKey(Serveurs, on_delete=models.CASCADE, null=True, related_name="serveur")
     def __str__(self):
