@@ -13,7 +13,7 @@
     
     <ol>
         {% for l in liste %}
-        <p>Types :{{l}}</p>
+        <p>Types : {{l}}</p>
     <a href="/adminsite/types/update/{{l.id}}/">
     <input type="submit" value="Update" class="button">{% csrf_token %}</a>
     
