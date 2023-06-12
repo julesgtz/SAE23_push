@@ -39,8 +39,8 @@ class ServicesForms(ModelForm):
         labels = {
             'nom': _('Nom du service'),
             'date':_('Date de lancement'),
-            'stockage_use': _('Espace de stockage utilisé en Mbit'),
-            'memoire_vive': _('Espace mémoire utilisé en Mbit'),
+            'stockage_use': _('Memoire (Go)'),
+            'memoire_vive': _('RAM (Go)'),
             'serveur_lancement': _('Serveur de lancement'),
 
         }
