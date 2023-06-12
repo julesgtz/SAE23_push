@@ -13,7 +13,9 @@
     
     <ol>
         {% for l in liste %}
-        <p>Utilisateur :{{l}}</p>
+        <p>Nom : {{l.nom}}</p>
+        <p>Prenom : {{l.prenom}}</p>
+        <p>Mail : {{l.email}}</p> 
     <a href="/adminsite/utilisateurs/update/{{l.id}}/">
     <input type="submit" value="Update" class="button">{% csrf_token %}</a>
     
