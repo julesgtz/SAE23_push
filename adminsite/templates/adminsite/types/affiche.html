@@ -9,11 +9,12 @@
     {% block content %}
     <h2> Liste des Types</h2>
 
-    <div class="form">
+    
     
     <ol>
         {% for l in liste %}
-        <p>Types : {{l}}</p>
+        <div class="form">
+        <p>Types : {{l}}</p></div>
     <a href="/adminsite/types/update/{{l.id}}/">
     <input type="submit" value="Update" class="button">{% csrf_token %}</a>
     
@@ -21,7 +22,7 @@
     <input type="submit" value="Delete" class="button">{% csrf_token %}</a>
     
         {% endfor %}
-    </ol></div>
+    </ol>
     {% endblock %}
 </body>
 </html>

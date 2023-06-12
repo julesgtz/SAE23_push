@@ -8,17 +8,16 @@
 <body>
 {% block content %}
 <h2> Liste des Serveurs</h2>
-
-<div class="form">
-
 <ol>
     {% for l in liste %}
+    <div class="form">
     <p>Serveur : {{l.nom}}</p>
     <p>Type : {{l.type}}</p>
     <p>Processseur : {{l.processeur}}</p>
     <p>Memoire : {{l.memoire}}</p>
     <p>Stockage initial: {{l.stockage_initial}}</p>
     <p>Stockage restant: {{l.stockage}}</p>
+</div>
 <a href="/adminsite/serveurs/update/{{l.id}}/">
 <input type="submit" value="Update" class="button">{% csrf_token %}</a>
 
@@ -28,8 +27,8 @@
 <a href="/adminsite/pdf/{{l.id}}/" >
     <input type="submit" value="PDF" class="button">{% csrf_token %}</a>
 
-    {% endfor %}
-</ol></div>
+{% endfor %}
+</ol>
 {% endblock %}
 </body>
 </html>
