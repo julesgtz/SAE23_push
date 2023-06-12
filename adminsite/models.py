@@ -15,18 +15,18 @@ class Types(models.Model):
 class Serveurs(models.Model):
     nom = models.CharField(max_length=100)
     type = models.ForeignKey(Types, on_delete=models.CASCADE, null=True, related_name="Type")
-    processeur_choices =(("i3","i3"),("i5","i5"),("i7","i7"),("i9","i9"),("ryzen3","ryzen3"),("ryzen5","ryzen5"),("ryzen7","ryzen7"))
-    processeur = models.CharField(max_length=20, choices=processeur_choices,null=True)
+    processeur = models.IntegerField(max_length=20,null=True)
     memoire_choices = (("64Go","64Go"),("32Go","32Go"),("16Go","16Go"),("8Go","8Go"))
     memoire = models.CharField(max_length=20, choices=memoire_choices, null=True)
     stockage_choices =(("1To","1To"),("512Go","512Go"),("256Go","256Go"), ("128Go","128Go"), ("64Go","64Go"), ("32Go","32Go"))
     stockage = models.CharField(max_length=20, choices=stockage_choices, null=True)
+    stockage_initial = models.CharField(max_length=20, null=True, blank=True)
 
     def __str__(self):
         return f" {self.nom} ( {self.type} )"
 
     def dico(self):
-        return {"nom": self.nom, "type": self.type,"processeur": self.processeur,"memoire": self.memoire,"stockage": self.stockage}
+        return {"nom": self.nom, "type": self.type,"processeur": self.processeur,"memoire": self.memoire,"stockage": self.stockage,"stockage_initial": self.stockage_initial}
 
 
 class Utilisateurs(models.Model):
@@ -57,8 +57,8 @@ class Applications(models.Model):
 class Services(models.Model):
     nom = models.CharField(max_length=30)
     date = models.DateField()
-    stockage_use = models.CharField(max_length=8,null=True)
-    memoire_vive = models.CharField(max_length=8,null=True)
+    stockage_use = models.CharField(max_length=18,null=True)
+    memoire_vive = models.CharField(max_length=18,null=True)
     serveur_lancement = models.ForeignKey(Serveurs, on_delete=models.CASCADE, null=True, related_name="serveur_lancement")
     def __str__(self):
         return f" {self.nom},le {self.date} utilisant {self.stockage_use} de stockage , nécessitant {self.memoire_vive} de mémoire , sur le serveur : {self.serveur_lancement}"

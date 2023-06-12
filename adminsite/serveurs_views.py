@@ -11,7 +11,9 @@ def ajout(request):
 def traitement(request):
     form = ServeursForms(request.POST)
     if form.is_valid():
-        app = form.save()
+        donnees = form.save(commit=False)
+        donnees.stockage_initial = donnees.stockage
+        donnees.save()
         return HttpResponseRedirect("/adminsite/serveurs/")
     else:
         return render(request, "adminsite/serveurs/ajout.html", {"form": form})
@@ -57,10 +59,9 @@ def serveur_pdf(request,id):
     pdf.set_font("Arial", size=15)
     pdf.cell(200, 10, txt="* Le serveur " + serveur.nom + " est un serveur de type " + models.Types.objects.get(
         pk=serveur.type.id).type, ln=2, align='L')
-    pdf.cell(200, 10, txt="* Espace stockage: " + str(serveur.stockage), ln=4, align='L')
-    pdf.cell(200, 10, txt="* Espace restant: " + "Mo", ln=5, align='L')
+    pdf.cell(200, 10, txt="* Espace stockage: " + str(serveur.stockage_initial), ln=4, align='L')
+    pdf.cell(200, 10, txt="* Espace restant: " + str(serveur.stockage), ln=5, align='L')
     pdf.cell(200, 10, txt="* Memoire vive: " + str(serveur.memoire), ln=6, align='L')
-    pdf.cell(200, 10, txt="* Memoire vive non occupée: " + "Mo", ln=7, align='L')
     pdf.cell(200, 10, txt="* Processeur: " + str(serveur.processeur), ln=8, align='L')
     line = 9
     pdf.cell(200, 10,  ln=1, align='C')
@@ -73,7 +74,7 @@ def serveur_pdf(request,id):
         for i in list(models.Applications.objects.filter(serveur=serveur)):
             pdf.cell(200, 10, txt='         - ' +i.nom, ln=line, align='L')
             line = line + 1
-    pdf.cell(200, 10,  ln=1, align='C')        
+    pdf.cell(200, 10,  ln=1, align='C')
     if len(list(models.Services.objects.filter(serveur_lancement=serveur))) == 0:
         pdf.cell(200, 10, txt="Il n'y a aucun service sur ce serveur.", ln=line, align='L')
         line = line + 1
