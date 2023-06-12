@@ -67,11 +67,11 @@ form label {
 
 h1{
     text-align: center;
-    color: blue;
+    color:#1e3c72;
     font-weight: bold;
-    margin-top: 10%;
-    font-size: 450%;
-    text-decoration: underline;
+    margin-top: 9%;
+    font-size: 500%;
+    text-shadow: 1px 1px 1px black;
 }
 h2{
     color:#1e3c72;
@@ -165,3 +165,9 @@ div > a:hover{
 
     width: 75%;
 }
+
+p{
+    font-family: 'Roboto', sans-serif;
+    font-size: 100%;
+    color: #333333; 
+  }
