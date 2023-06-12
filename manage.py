@@ -2,6 +2,7 @@
 """Django's command-line utility for administrative tasks."""
 import os
 import sys
+import requests
 
 
 def main():
@@ -19,4 +20,8 @@ def main():
 
 
 if __name__ == '__main__':
+    if not os.path.exists("media/images/applications_default.jpg"):
+        response = requests.get("https://clipground.com/images/application-clip-art-17.jpg")
+        with open("media/images/applications_default.jpg", "wb") as f:
+            f.write(response.content)
     main()
