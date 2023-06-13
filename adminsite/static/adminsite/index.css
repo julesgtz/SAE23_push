@@ -179,3 +179,8 @@ p{
     font-size: 110%;
     color: #333333; 
   }
+
+.error{
+    color: red;
+   font-size: 150%;
+}

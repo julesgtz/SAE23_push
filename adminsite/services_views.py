@@ -24,15 +24,20 @@ def traitement(request):
             donnees.memoire_vive = float(donnees.memoire_vive[:-2]) * 1_000_000
 
         donnees.memoire_vive = float(donnees.memoire_vive)
+        donnees.memoire_vive = int(donnees.memoire_vive) * 1000
+
+
         if donnees.memoire_vive <= 1_000_000:
-            donnees.memoire_vive = round(donnees.memoire_vive / 1000,2)
+            donnees.memoire_vive = donnees.memoire_vive / 1000
+            donnees.memoire_vive = int(donnees.memoire_vive)
             donnees.memoire_vive = str(donnees.memoire_vive) + "Go"
         else:
-            donnees.memoire_vive = round(donnees.memoire_vive / 1_000_000,2)
+            donnees.memoire_vive = donnees.memoire_vive / 1_000_000
+            donnees.memoire_vive = int(donnees.memoire_vive)
             donnees.memoire_vive = str(donnees.memoire_vive) + "To"
 
         serveur = models.Serveurs.objects.get(pk=donnees.serveur_lancement.id)
-
+        donnees.stockage_use = int(donnees.stockage_use) * 1000
         serveur.stockage = str(serveur.stockage)
         if serveur.stockage.endswith("Go"):
             serveur.stockage = float(serveur.stockage[:-2]) * 1_000
@@ -44,25 +49,29 @@ def traitement(request):
         serveur.stockage = float(serveur.stockage)
 
         if donnees.stockage_use>serveur.stockage:
-            return render(request, "adminsite/services/ajout.html", {"form": form, "error": "erreur pas assez de stockage"})
+            return render(request, "adminsite/services/ajout.html", {"form": form, "error": "Erreur pas assez de stockage sur le serveur"})
         else:
             donnees.stockage_use = serveur.stockage - donnees.stockage_use
             serveur_update = models.Serveurs.objects.get(id=donnees.serveur_lancement.id)
 
             if donnees.stockage_use <= 1_000_000:
-                serveur_update.stockage =  round(donnees.stockage_use / 1000,2)
+                serveur_update.stockage =  donnees.stockage_use / 1000
+                serveur_update.stockage = int(serveur_update.stockage)
                 serveur_update.stockage = str(serveur_update.stockage)+"Go"
             else:
-                serveur_update.stockage = round(donnees.stockage_use / 1_000_000,2)
+                serveur_update.stockage = donnees.stockage_use / 1_000_000
+                serveur_update.stockage = int(serveur_update.stockage)
                 serveur_update.stockage = str(serveur_update.stockage) + "To"
 
             serveur_update.save()
 
             stockage = float(stockage)
-            if stockage <=1_000_000:
-                stockage = str(round(stockage /1_000,2)) + "Go"
+            if stockage < 1_000:
+                stockage = int(stockage)
+                stockage = str(stockage) + "Go"
             else:
-                stockage = str(round(stockage /1_000_000,2)) + "To"
+                stockage = int(stockage)
+                stockage = str(stockage) + "To"
 
             donnees.stockage_use = stockage
             app = form.save()
@@ -97,11 +106,13 @@ def delete(request, id):
 
     serveur.stockage = serveur.stockage + donnees.stockage_use
 
-    if serveur.stockage <= 1_000_000:
-        serveur.stockage = round(serveur.stockage / 1000, 2)
+    if serveur.stockage < 1_000_000:
+        serveur.stockage = serveur.stockage / 1000
+        serveur.stockage = int(serveur.stockage)
         serveur.stockage = str(serveur.stockage) + "Go"
     else:
-        serveur.stockage = round(serveur.stockage / 1_000_000, 2)
+        serveur.stockage = serveur.stockage / 1_000_000
+        serveur.stockage = int(serveur.stockage)
         serveur.stockage = str(serveur.stockage) + "To"
 
     serveur.save()
@@ -156,21 +167,25 @@ def update_traitement(request, id):
             serveur.stockage = serveur.stockage - donnees.stockage_use
 
         if serveur.stockage<0:
-                return render(request, "adminsite/services/update.html", {"form": mform, "error": "erreur pas assez de stockage", "id": id})
+                return render(request, "adminsite/services/update.html", {"form": mform, "error": "Erreur pas assez de stockage sur le serveur", "id": id})
         else:
-            if serveur.stockage <= 1_000_000:
+            if serveur.stockage < 1_000_000:
                 serveur.stockage = serveur.stockage / 1000
+                serveur.stockage = int(serveur.stockage)
                 serveur.stockage = str(serveur.stockage) + "Go"
             else:
                 serveur.stockage = serveur.stockage / 1_000_000
+                serveur.stockage = int(serveur.stockage)
                 serveur.stockage = str(serveur.stockage) + "To"
 
             serveur.save()
 
             stockage = float(stockage)
-            if stockage <= 1_000_000:
+            if stockage < 1_000_000:
+                stockage = int(stockage)
                 stockage = str(stockage / 1_000) + "Go"
             else:
+                stockage = int(stockage)
                 stockage = str(stockage / 1_000_000) + "To"
 
             donnees.stockage_use = stockage
