@@ -2,4 +2,4 @@ pillow==9.5.0
 django==4.2.2
 FPDF==1.7.2
 requests==2.31.0
-WhiteNoise==6.4.0
+whitenoise==6.4.0
