@@ -87,7 +87,7 @@ DATABASES = {
 #       'NAME': 'sae23',
 #       'USER': 'toto',
 #       'PASSWORD': 'toto',
-#       'HOST': '192.168.1.82',
+#       'HOST': '192.168.4.145',
 #       'PORT': '3306',
 #        'OPTIONS': {
 #            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
