@@ -74,23 +74,16 @@ WSGI_APPLICATION = 'sae23.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
-
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
-#DATABASES = {
-#   'default': {
-#       'ENGINE': 'django.db.backends.mysql',
-#       'NAME': 'sae23',
-#       'USER': 'toto',
-#       'PASSWORD': 'toto',
-#       'HOST': '192.168.4.145',
-#       'PORT': '3306',
-#        'OPTIONS': {
-#            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
+   'default': {
+       'ENGINE': 'django.db.backends.mysql',
+       'NAME': 'sae23',
+       'USER': 'toto',
+       'PASSWORD': 'toto',
+       'HOST': '192.168.4.145',
+       'PORT': '3306',
+        'OPTIONS': {
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
         }
     }
 }
